@@ -1,6 +1,6 @@
 {
   "name": "@riotprompt/riotprompt",
-  "version": "1.0.3-dev.0",
+  "version": "1.0.4",
   "_versionReset": "2026-01-15",
   "keywords": [
     "prompt",
@@ -23,13 +23,14 @@
     }
   },
   "bin": {
-    "riotprompt": "./dist/cli.js"
+    "riotprompt": "./dist/cli.js",
+    "riotprompt-mcp": "./dist/mcp-server.js"
   },
   "engines": {
     "node": ">=24.0.0"
   },
   "scripts": {
-    "build": "npm run lint && tsc --noEmit && vite build && vite build -c vite.config.cli.ts",
+    "build": "npm run lint && tsc --noEmit && vite build && vite build -c vite.config.cli.ts && node scripts/build-mcp.js && copyfiles -u 1 \"src/mcp/prompts/*.md\" dist && chmod 755 ./dist/mcp-server.js 2>/dev/null || true",
     "start": "dist/main.js",
     "dev": "vite",
     "watch": "vite build --watch",
@@ -44,6 +45,9 @@
     "clean": "rm -rf dist",
     "precommit": "npm run build && npm run lint && npm run test",
     "prepublishOnly": "npm run clean && npm run build",
+    "mcp:build": "vite build && node scripts/build-mcp.js && chmod 755 ./dist/mcp-server.js 2>/dev/null || true",
+    "mcp:inspect": "mcp-inspector npx -y @modelcontextprotocol/server-riotprompt",
+    "mcp:dev": "vite build --watch",
     "docs:dev": "cd docs && cp ../README.md public/ && npm install && npm run dev",
     "docs:build": "cd docs && cp ../README.md public/ && npm install && npm run build",
     "docs:preview": "cd docs && npm run preview",
@@ -60,16 +64,21 @@
     "@doccident/doccident": "^0.0.9",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.30.1",
+    "@modelcontextprotocol/inspector": "^0.19.0",
     "@rollup/plugin-replace": "^6.0.2",
     "@swc/core": "^1.12.11",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.0.12",
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
     "@vitest/coverage-v8": "^4.0.17",
     "ajv": "^8.17.1",
+    "copyfiles": "^2.4.1",
+    "esbuild": "0.27.2",
     "eslint": "^9.30.1",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^17.0.0",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
     "typescript": "^5.8.3",
     "vite": "^7.0.4",
     "vite-plugin-dts": "^4.5.4",
@@ -80,6 +89,7 @@
     "@anthropic-ai/sdk": "^0.71.2",
     "@fjell/logging": "^4.4.68",
     "@google/generative-ai": "^0.24.1",
+    "@modelcontextprotocol/sdk": "^1.25.3",
     "@theunwalked/cardigantime": "^0.0.22",
     "@theunwalked/pressurelid": "^1.0.2",
     "@theunwalked/spotclean": "^0.0.3",

@@ -18,7 +18,8 @@ export default defineConfig([
         "node_modules/**",
         "**/*.test.ts",
         "docs/dist/**",
-        "docs/**"
+        "docs/**",
+        "scripts/**"
     ]),
     {
         extends: compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),

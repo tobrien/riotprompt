@@ -9,7 +9,7 @@ A powerful, flexible prompt building library and CLI tool for AI applications wi
 - **Model Alignment**: Automatically adapts prompt structure to match the specific expectations of each model provider:
     - **Anthropic (Claude)**: Places Personas, Roles, Tone, and Constraints into the `system` parameter. Additionally, converts `schema` definitions into forced **Tool Use** calls, extracting structured results to match OpenAI's output format.
     - **OpenAI**: Maps generic roles to the appropriate `system` or `developer` (for O-series) messages.
-    - **Gemini**: Structurally adapts components into System Instructions and content parts, supporting the rich prompt components recommended in [Gemini's Prompt Design Strategies](https://cloud.google.com/vertex-ai/docs/generative-ai/learn/prompt-design-strategies).
+    - **Gemini**: Structurally adapts components into System Instructions and content parts. For structured outputs, it automatically transforms JSON schemas into Gemini's `responseSchema` format, ensuring strict adherence to the defined structure.
 - **CLI Tool**: Scaffold, manage, process, and **execute** prompts directly from the terminal.
 - **Model Agnostic**: Format prompts for different models (GPT-4, Claude, Gemini, etc.) automatically.
 - **Execution Engine**: Run prompts against OpenAI, Anthropic, or Gemini APIs directly.
@@ -19,14 +19,27 @@ A powerful, flexible prompt building library and CLI tool for AI applications wi
 ## Installation
 
 ```bash
-npm install riotprompt
+npm install @riotprompt/riotprompt
+```
+
+## MCP Server
+
+RiotPrompt includes a Model Context Protocol (MCP) server that allows AI assistants to create, process, and execute prompts. See [MCP.md](MCP.md) for configuration and usage details.
+
+```json
+{
+  "mcpServers": {
+    "riotprompt": {
+      "command": "npx",
+      "args": ["-y", "@riotprompt/riotprompt", "riotprompt-mcp"]
+    }
+  }
+}
 ```
 
 ## CLI Usage
 
 RiotPrompt comes with a command-line interface to help you organize, process, and execute prompts.
-
-**New to RiotPrompt?** Check out the [Quick Start Guide](docs/public/quick-start.md) or [Complete Tutorial](docs/public/tutorial.md).
 
 ### 1. Create a Prompt
 
@@ -126,23 +139,20 @@ You can also use RiotPrompt programmatically in your application.
 ```typescript
 import { cook, registerTemplates } from 'riotprompt';
 
-// Advanced prompt creation with structured outputs
+// Advanced prompt creation
 import { z } from "zod";
 
 const prompt = await cook({
   basePath: __dirname,
   persona: { content: 'You are a helpful AI assistant' },
-  instructions: [{ content: 'Analyze the content' }],
-  content: [{ content: dataToAnalyze }],
-  // Structured Output with Zod - automatic validation across all providers
+  // ...
+  // Structured Output with Zod
   schema: z.object({
       summary: z.string(),
       tags: z.array(z.string()),
       confidence: z.number().min(0).max(1)
   })
 });
-
-// Learn more: https://kjerneverk.github.io/riotprompt/structured-outputs
 
 // Register and use templates
 registerTemplates({
@@ -161,11 +171,11 @@ const analysisPrompt = await cook({
 
 ## Documentation
 
-For more detailed guides on architecture and advanced usage, check the [Guide](guide/index.md).
+Full documentation is available at [https://kjerneverk.github.io/riotprompt/](https://kjerneverk.github.io/riotprompt/).
 
+You can also explore the guides in the source:
 - [Core Concepts](docs/public/core-concepts.md)
 - [Recipes System](docs/public/recipes.md)
-- [Structured Outputs](docs/public/structured-outputs.md)
 - [API Reference](docs/public/api-reference.md)
 - [Template Configuration](docs/public/template-configuration.md)
 
@@ -192,3 +202,5 @@ Apache-2.0 License - see [LICENSE](LICENSE) for details.
 ---
 
 *Build better prompts, faster.*
+
+<!-- v1.0.0 -->
