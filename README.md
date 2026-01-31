@@ -1,20 +1,39 @@
 # RiotPrompt
 
-A powerful, flexible prompt building library and CLI tool for AI applications with zero hardcoded assumptions.
+**A prompt is bigger than the text you send to an LLM.**
+
+RiotPrompt treats prompts as **constructs**—structured formats that include process, evolution, and tool independence. Write once, work with any model. Track revisions. Make your prompts truly yours.
+
+Part of [Kjerneverk](https://kjerneverk.github.io) - structured formats for working with generative AI.
+
+## Why RiotPrompt?
+
+### Before: Freeform Text Blocks
+
+- Write different prompts for different models
+- Lose history and evolution
+- Can't experiment with variations
+- No structure, no reusability
+
+### After: Prompts as Constructs
+
+- **Write once, translate automatically**: OpenAI uses Markdown sections, Anthropic uses XML tags, Gemini has rich sections. RiotPrompt abstracts these differences.
+- **Evolution and experimentation**: Track revisions, create variations, maintain history. Your prompts are assets that improve over time.
+- **Structured format**: Prompts have sections—persona, instructions, context, constraints, tone, examples, schema. Not freeform text.
+- **Tool independence**: Works from CLI with API keys, via MCP with any model, or as a library in your applications.
 
 ## Features
 
-- **Structured Prompts**: Treat prompts as code with specialized sections for Persona, Instructions, Context, and more.
-- **Advanced Prompt Strategies**: First-class support for **Constraints**, **Tone**, **Few-Shot Examples**, **Reasoning Steps**, **Response Format**, and **Safeguards**.
-- **Model Alignment**: Automatically adapts prompt structure to match the specific expectations of each model provider:
-    - **Anthropic (Claude)**: Places Personas, Roles, Tone, and Constraints into the `system` parameter. Additionally, converts `schema` definitions into forced **Tool Use** calls, extracting structured results to match OpenAI's output format.
-    - **OpenAI**: Maps generic roles to the appropriate `system` or `developer` (for O-series) messages.
-    - **Gemini**: Structurally adapts components into System Instructions and content parts. For structured outputs, it automatically transforms JSON schemas into Gemini's `responseSchema` format, ensuring strict adherence to the defined structure.
-- **CLI Tool**: Scaffold, manage, process, and **execute** prompts directly from the terminal.
-- **Model Agnostic**: Format prompts for different models (GPT-4, Claude, Gemini, etc.) automatically.
-- **Execution Engine**: Run prompts against OpenAI, Anthropic, or Gemini APIs directly.
-- **Portable**: Serialize prompts to JSON or XML for easy exchange between systems.
-- **Type-Safe**: Full TypeScript support with excellent IntelliSense.
+- **Structured Prompts**: Specialized sections for Persona, Instructions, Context, Constraints, Tone, Examples, and Schema (with Zod)
+- **Cross-LLM Translation**: Automatically adapts to each provider:
+    - **Anthropic (Claude)**: System parameter, tool use for schemas
+    - **OpenAI**: System/developer messages, native structured outputs
+    - **Gemini**: System instructions, responseSchema format
+- **CLI Tool**: Create, process, and execute prompts from the terminal
+- **MCP Server**: Let AI assistants manage your prompts with structure
+- **Portable**: Serialize to JSON or XML for cross-system exchange
+- **Type-Safe**: Full TypeScript support with excellent IntelliSense
+- **Zero Assumptions**: No hardcoded behaviors—you define everything
 
 ## Installation
 
