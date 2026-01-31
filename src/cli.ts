@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import 'dotenv/config';
 import { Command } from 'commander';
-import { create as createConfig } from '@theunwalked/cardigantime';
+import { create as createConfig } from '@utilarium/cardigantime';
 import { ConfigSchema } from './config';
 import * as RiotPrompt from './riotprompt';
 import * as fs from 'fs/promises';

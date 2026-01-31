@@ -25,7 +25,7 @@ export interface Logger {
 }
 
 // Get the library-level logger from Fjell
-const LibLogger = Logging.getLogger('@theunwalked/riotprompt');
+const LibLogger = Logging.getLogger('@riotprompt/riotprompt');
 
 /**
  * Create a silent logger with the given name
@@ -110,7 +110,7 @@ const FJELL_LOGGER: Logger = {
  * 
  * @example
  * ```typescript
- * import { DEFAULT_LOGGER } from '@theunwalked/riotprompt';
+ * import { DEFAULT_LOGGER } from '@riotprompt/riotprompt';
  * 
  * const logger = DEFAULT_LOGGER.get?.('MyComponent') ?? DEFAULT_LOGGER;
  * logger.info('Processing request', { userId: 123 });

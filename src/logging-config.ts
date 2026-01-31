@@ -13,7 +13,7 @@ import Logging, {
 import type { Logger } from './logger';
 
 // Get library logger
-export const RiotPromptLogger = Logging.getLogger('@theunwalked/riotprompt');
+export const RiotPromptLogger = Logging.getLogger('@riotprompt/riotprompt');
 
 /**
  * Secure logging configuration options

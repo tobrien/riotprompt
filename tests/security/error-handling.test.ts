@@ -1,5 +1,5 @@
 /**
- * Tests for error handling integration with @theunwalked/spotclean
+ * Tests for error handling integration with @utilarium/spotclean
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';

@@ -1,7 +1,7 @@
 /**
  * Error Handling Utilities
  * 
- * Provides centralized error sanitization using @theunwalked/spotclean
+ * Provides centralized error sanitization using @utilarium/spotclean
  * to prevent information disclosure in error messages.
  * 
  * @packageDocumentation
@@ -18,7 +18,7 @@ import {
     type SanitizedErrorResult,
     type Logger as SpotcleanLogger,
     type ErrorHandlingOptions,
-} from '@theunwalked/spotclean';
+} from '@utilarium/spotclean';
 
 // Re-export spotclean types and functions for convenience
 export {

@@ -18,9 +18,9 @@ This release includes comprehensive security enhancements. See the [Security Gui
 - **PathGuard**: Path traversal prevention with base directory restrictions
 - **SecretGuard**: Automatic redaction of sensitive data in logs and errors via `@fjell/logging`
 - **TimeoutGuard**: Request timeout enforcement for LLM and tool calls
-- **SafeRegex**: ReDoS protection for user-provided regex patterns via `@theunwalked/pressurelid`
+- **SafeRegex**: ReDoS protection for user-provided regex patterns via `@utilarium/pressurelid`
 - **CLIValidator**: Input validation for command-line arguments
-- **ErrorSanitizer**: Production-safe error messages with correlation IDs via `@theunwalked/spotclean`
+- **ErrorSanitizer**: Production-safe error messages with correlation IDs via `@utilarium/spotclean`
 - **SecurityAuditLogger**: Security event logging and monitoring
 - **RateLimiter**: Rate limiting interfaces and in-memory implementation
 
@@ -63,9 +63,9 @@ This release includes comprehensive security enhancements. See the [Security Gui
 
 Added the following security-focused dependencies:
 
-- `@theunwalked/offrecord` - API key security and redaction
-- `@theunwalked/pressurelid` - Safe regex handling
-- `@theunwalked/spotclean` - Error message sanitization
+- `@utilarium/offrecord` - API key security and redaction
+- `@utilarium/pressurelid` - Safe regex handling
+- `@utilarium/spotclean` - Error message sanitization
 - `@fjell/logging` - Secure logging with masking
 
 ## [0.0.20] - Previous Release

@@ -34,7 +34,7 @@ async function buildMCPServer() {
                 '@anthropic-ai/*',
                 '@google/*',
                 '@fjell/*',
-                '@theunwalked/*',
+                '@utilarium/*',
                 'openai',
                 'tiktoken',
             ],

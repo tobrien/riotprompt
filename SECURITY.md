@@ -35,14 +35,14 @@ RiotPrompt includes comprehensive security features to protect your AI workflows
 
 ### Secret Protection
 - **Automatic Redaction**: Sensitive data redacted in logs via `@fjell/logging`
-- **API Key Security**: Keys validated and never logged via `@theunwalked/offrecord`
-- **Error Sanitization**: Production errors don't leak secrets via `@theunwalked/spotclean`
+- **API Key Security**: Keys validated and never logged via `@utilarium/offrecord`
+- **Error Sanitization**: Production errors don't leak secrets via `@utilarium/spotclean`
 - **Pattern Detection**: Built-in patterns for OpenAI, Anthropic, Gemini, and common secrets
 
 ### Request Security
 - **Timeout Enforcement**: All external requests have configurable timeouts via `TimeoutGuard`
 - **Rate Limiting Interfaces**: Built-in interfaces for rate limiting
-- **Safe Regex**: ReDoS protection via `@theunwalked/pressurelid`
+- **Safe Regex**: ReDoS protection via `@utilarium/pressurelid`
 
 ### Logging Security
 - **Silent by Default**: Library logging disabled unless explicitly enabled
@@ -54,7 +54,7 @@ RiotPrompt includes comprehensive security features to protect your AI workflows
 ### Recommended Defaults
 
 ```typescript
-import { Security } from '@theunwalked/riotprompt';
+import { Security } from '@riotprompt/riotprompt';
 
 // Configure path security
 Security.configurePathGuard({
@@ -121,9 +121,9 @@ Security features rely on these packages:
 
 | Package | Purpose |
 |---------|---------|
-| `@theunwalked/offrecord` | API key security and redaction |
-| `@theunwalked/pressurelid` | Safe regex handling |
-| `@theunwalked/spotclean` | Error message sanitization |
+| `@utilarium/offrecord` | API key security and redaction |
+| `@utilarium/pressurelid` | Safe regex handling |
+| `@utilarium/spotclean` | Error message sanitization |
 | `@fjell/logging` | Secure logging with masking |
 
 ## Security Updates

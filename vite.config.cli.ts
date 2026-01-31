@@ -19,7 +19,7 @@ export default defineConfig({
         rollupOptions: {
             external: [
                 'commander',
-                '@theunwalked/cardigantime',
+                '@utilarium/cardigantime',
                 'node:fs',
                 'node:fs/promises',
                 'node:path',

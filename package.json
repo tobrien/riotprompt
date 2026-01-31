@@ -1,6 +1,6 @@
 {
   "name": "@riotprompt/riotprompt",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "_versionReset": "2026-01-15",
   "keywords": [
     "prompt",
@@ -90,9 +90,9 @@
     "@fjell/logging": "^4.4.68",
     "@google/generative-ai": "^0.24.1",
     "@modelcontextprotocol/sdk": "^1.25.3",
-    "@theunwalked/cardigantime": "^0.0.22",
-    "@theunwalked/pressurelid": "^1.0.2",
-    "@theunwalked/spotclean": "^0.0.3",
+    "@utilarium/cardigantime": "^0.0.24",
+    "@utilarium/pressurelid": "^1.0.3",
+    "@utilarium/spotclean": "^0.0.4",
     "commander": "^14.0.2",
     "dotenv": "^17.2.3",
     "fast-xml-parser": "^5.3.3",
@@ -101,17 +101,17 @@
     "marked": "^16.0.0",
     "openai": "^6.15.0",
     "tiktoken": "^1.0.22",
-    "zod": "^4.0.2",
+    "zod": "^4.3.6",
     "zod-to-json-schema": "^3.25.1"
   },
   "peerDependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@google/generative-ai": "^0.24.1",
-    "@riotprompt/agentic": "^1.0.2",
+    "@riotprompt/agentic": "^1.0.4",
     "@riotprompt/execution": "^1.0.3",
-    "@riotprompt/execution-anthropic": "^1.0.1",
-    "@riotprompt/execution-gemini": "^1.0.1",
-    "@riotprompt/execution-openai": "^1.0.3",
+    "@riotprompt/execution-anthropic": "^1.0.3",
+    "@riotprompt/execution-gemini": "^1.0.3",
+    "@riotprompt/execution-openai": "^1.0.4",
     "openai": "^6.15.0",
     "tiktoken": "^1.0.22"
   },

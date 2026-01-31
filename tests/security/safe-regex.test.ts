@@ -8,7 +8,7 @@ import {
     createSafeRegex,
     globToSafeRegex,
     escapeForRegex,
-} from '@theunwalked/pressurelid';
+} from '@utilarium/pressurelid';
 import { REDOS_VECTORS } from './fixtures/attack-vectors';
 
 describe('Safe Regex Integration', () => {

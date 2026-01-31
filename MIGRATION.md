@@ -35,7 +35,7 @@ Library logging is now silent by default to prevent information disclosure.
 **Before:**
 ```typescript
 // Library logged to console by default
-import { DEFAULT_LOGGER } from '@theunwalked/riotprompt';
+import { DEFAULT_LOGGER } from '@riotprompt/riotprompt';
 ```
 
 **After:**
@@ -56,7 +56,7 @@ Most security features are opt-in to maintain backward compatibility:
 #### Tool Validation
 
 ```typescript
-import { ToolGuard } from '@theunwalked/agentic';
+import { ToolGuard } from '@riotprompt/agentic';
 import { z } from 'zod';
 
 // Create a guard with schemas
@@ -78,7 +78,7 @@ const registry = ToolRegistry.create()
 #### Path Validation
 
 ```typescript
-import { PathGuard, configurePathGuard } from '@theunwalked/riotprompt';
+import { PathGuard, configurePathGuard } from '@riotprompt/riotprompt';
 
 // Configure globally
 configurePathGuard({
@@ -101,7 +101,7 @@ if (!result.valid) {
 #### Timeout Enforcement
 
 ```typescript
-import { TimeoutGuard } from '@theunwalked/riotprompt';
+import { TimeoutGuard } from '@riotprompt/riotprompt';
 
 const guard = new TimeoutGuard({
   enabled: true,
@@ -119,7 +119,7 @@ const result = await guard.withLLMTimeout(
 #### Error Sanitization
 
 ```typescript
-import { initializeErrorHandling, sanitize } from '@theunwalked/riotprompt';
+import { initializeErrorHandling, sanitize } from '@riotprompt/riotprompt';
 
 // Initialize at startup
 initializeErrorHandling({
@@ -150,7 +150,7 @@ import {
   configureTimeoutGuard,
   configureAuditLogger,
   initializeErrorHandling,
-} from '@theunwalked/riotprompt';
+} from '@riotprompt/riotprompt';
 
 // Initialize error handling first
 initializeErrorHandling({
@@ -199,9 +199,9 @@ The following environment variables control security behavior:
 
 This version adds the following dependencies:
 
-- `@theunwalked/offrecord` - API key security
-- `@theunwalked/pressurelid` - Safe regex
-- `@theunwalked/spotclean` - Error sanitization
+- `@utilarium/offrecord` - API key security
+- `@utilarium/pressurelid` - Safe regex
+- `@utilarium/spotclean` - Error sanitization
 - `@fjell/logging` - Secure logging
 
 These are production dependencies and will be installed automatically.
@@ -211,7 +211,7 @@ These are production dependencies and will be installed automatically.
 After upgrading, verify security features work correctly:
 
 ```typescript
-import { PathGuard, sanitize } from '@theunwalked/riotprompt';
+import { PathGuard, sanitize } from '@riotprompt/riotprompt';
 
 // Test path validation
 const guard = new PathGuard({ basePaths: ['/app'] });
