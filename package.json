@@ -90,7 +90,7 @@
     "@fjell/logging": "^4.4.68",
     "@google/generative-ai": "^0.24.1",
     "@modelcontextprotocol/sdk": "^1.25.3",
-    "@utilarium/cardigantime": "^0.0.24",
+    "@utilarium/cardigantime": "^0.0.25",
     "@utilarium/pressurelid": "^1.0.3",
     "@utilarium/spotclean": "^0.0.4",
     "commander": "^14.0.2",

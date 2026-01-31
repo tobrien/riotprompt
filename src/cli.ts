@@ -15,7 +15,10 @@ const configManager = createConfig({
     configShape: ConfigSchema.shape,
     defaults: {
         configDirectory: process.cwd(),
-        configFile: 'riotprompt.yaml'
+        configFile: 'riotprompt.yaml',
+        pathResolution: {
+            pathFields: ['promptsDir', 'outputDir'],
+        },
     }
 });
 
