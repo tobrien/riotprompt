@@ -7,7 +7,7 @@ Learn how to create, organize, and format prompts with RiotPrompt's fundamental 
 Sections are the building blocks of RiotPrompt. Here's how to create and populate them:
 
 ```js
-import { createSection, Formatter, Section, Instruction, Context } from '@riotprompt/riotprompt';
+import { createSection, Formatter, Section, Instruction, Context } from '@kjerneverk/riotprompt';
 
 // Create a section for coding best practices
 const instructions: Section<Instruction> = createSection<Instruction>({ title: "Instructions" });
@@ -140,7 +140,7 @@ console.log(formatted);
 You can create complex prompt structures by combining multiple sections:
 
 ```js
-import { createSection, Formatter } from '@riotprompt/riotprompt';
+import { createSection, Formatter } from '@kjerneverk/riotprompt';
 
 // Create different types of sections
 const persona = createSection({ title: "Assistant Persona" });

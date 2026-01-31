@@ -58,7 +58,7 @@ The primary way to use RiotPrompt programmatically is via the **Recipes API** (`
 ### Basic Recipe
 
 ```typescript
-import { cook } from '@riotprompt/riotprompt';
+import { cook } from '@kjerneverk/riotprompt';
 
 const prompt = await cook({
     basePath: __dirname,
@@ -105,7 +105,7 @@ const prompt = await cook({
 RiotPrompt supports portable structured outputs using `zod` schemas. This works across different providers (OpenAI, Anthropic, Gemini) by automatically adapting the schema to the provider's expected format (JSON Schema, Tool Use, etc.).
 
 ```typescript
-import { cook, executeChat } from '@riotprompt/riotprompt';
+import { cook, executeChat } from '@kjerneverk/riotprompt';
 import { z } from 'zod';
 
 // 1. Define your schema using Zod
@@ -138,7 +138,7 @@ console.log(result.content.sentiment); // "positive"
 You can register reusable templates to standardize prompts across your application.
 
 ```typescript
-import { registerTemplates, cook } from '@riotprompt/riotprompt';
+import { registerTemplates, cook } from '@kjerneverk/riotprompt';
 
 registerTemplates({
     'security-audit': {

@@ -7,7 +7,7 @@ Welcome to RiotPrompt - a structured prompt engineering library for LLMs that he
 Install RiotPrompt via npm:
 
 ```bash
-npm install @riotprompt/riotprompt
+npm install @kjerneverk/riotprompt
 ```
 
 ## Quick Start
@@ -15,7 +15,7 @@ npm install @riotprompt/riotprompt
 Here's how to get started with RiotPrompt in just a few lines:
 
 ```js
-import { createSection, createPrompt, Formatter, Section, Instruction } from '@riotprompt/riotprompt';
+import { createSection, createPrompt, Formatter, Section, Instruction } from '@kjerneverk/riotprompt';
 
 // Create a new instruction section
 const section: Section<Instruction> = createSection<Instruction>({ title: "Instructions" });

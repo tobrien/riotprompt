@@ -361,7 +361,7 @@ import {
   ContentText,
   Context,
   Trait
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 
 // Advanced features
 import {
@@ -369,7 +369,7 @@ import {
   Loader,
   Builder,
   Override
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 
 // Recipes system
 import {
@@ -378,5 +378,5 @@ import {
   registerTemplates,
   getTemplates,
   clearTemplates
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 ``` 

@@ -51,7 +51,7 @@ Groups related items together with powerful organization capabilities:
 Sections can contain other sections, allowing you to create nested structures:
 
 ```js
-import { createSection, Section, Instruction } from '@riotprompt/riotprompt';
+import { createSection, Section, Instruction } from '@kjerneverk/riotprompt';
 
 // Main section
 const codeReview: Section<Instruction> = createSection({ title: "Code Review Guidelines" });

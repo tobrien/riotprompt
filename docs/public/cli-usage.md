@@ -22,7 +22,7 @@ RiotPrompt CLI requires Node.js and npm to be installed on your system.
 Install RiotPrompt globally to use the CLI from anywhere:
 
 ```bash
-npm install -g @riotprompt/riotprompt
+npm install -g @kjerneverk/riotprompt
 ```
 
 Or run commands without installation using `npx`:

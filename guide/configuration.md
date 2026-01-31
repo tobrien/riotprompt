@@ -31,7 +31,7 @@ RiotPrompt has an internal `ModelRegistry` that determines how prompts are forma
 Currently, these are hardcoded in `src/model-config.ts` but the library supports runtime configuration via `configureModel`.
 
 ```typescript
-import { configureModel } from '@riotprompt/riotprompt';
+import { configureModel } from '@kjerneverk/riotprompt';
 
 // Register a custom local model
 configureModel({

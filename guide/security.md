@@ -41,7 +41,7 @@ This guide covers security best practices when using RiotPrompt and related pack
 For local development with verbose logging:
 
 ```typescript
-import { Security } from '@riotprompt/riotprompt';
+import { Security } from '@kjerneverk/riotprompt';
 
 // Permissive configuration for development
 Security.configurePathGuard({
@@ -62,7 +62,7 @@ process.env.RIOTPROMPT_LOGGING = 'true';
 Recommended configuration for production:
 
 ```typescript
-import { Security, initializeErrorHandling } from '@riotprompt/riotprompt';
+import { Security, initializeErrorHandling } from '@kjerneverk/riotprompt';
 
 // Initialize error handling first
 initializeErrorHandling({
@@ -111,8 +111,8 @@ Security.configureAuditLogger({
 For handling PII or sensitive data:
 
 ```typescript
-import { Security } from '@riotprompt/riotprompt';
-import { ToolGuard, ToolSandbox } from '@riotprompt/agentic';
+import { Security } from '@kjerneverk/riotprompt';
+import { ToolGuard, ToolSandbox } from '@kjerneverk/agentic';
 
 // Strict path security
 Security.configurePathGuard({

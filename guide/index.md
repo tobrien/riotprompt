@@ -23,7 +23,7 @@ When analyzing or generating code using `riotprompt`, keep these patterns in min
 3.  **Execute via Provider**: Use `executeChat` to run prompts against LLMs, handling provider-specific details automatically.
 
 ```typescript
-import { cook, executeChat } from '@riotprompt/riotprompt';
+import { cook, executeChat } from '@kjerneverk/riotprompt';
 import { z } from 'zod';
 
 // Define output structure

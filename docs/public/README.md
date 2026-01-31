@@ -19,7 +19,7 @@ A powerful, flexible prompt building library and CLI tool for AI applications wi
 ## Installation
 
 ```bash
-npm install @riotprompt/riotprompt
+npm install @kjerneverk/riotprompt
 ```
 
 ## MCP Server
@@ -31,7 +31,7 @@ RiotPrompt includes a Model Context Protocol (MCP) server that allows AI assista
   "mcpServers": {
     "riotprompt": {
       "command": "npx",
-      "args": ["-y", "@riotprompt/riotprompt", "riotprompt-mcp"]
+      "args": ["-y", "@kjerneverk/riotprompt", "riotprompt-mcp"]
     }
   }
 }

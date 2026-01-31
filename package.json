@@ -1,6 +1,6 @@
 {
-  "name": "@riotprompt/riotprompt",
-  "version": "1.0.5",
+  "name": "@kjerneverk/riotprompt",
+  "version": "1.0.6",
   "_versionReset": "2026-01-15",
   "keywords": [
     "prompt",
@@ -107,28 +107,28 @@
   "peerDependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@google/generative-ai": "^0.24.1",
-    "@riotprompt/agentic": "^1.0.4",
-    "@riotprompt/execution": "^1.0.3",
-    "@riotprompt/execution-anthropic": "^1.0.3",
-    "@riotprompt/execution-gemini": "^1.0.3",
-    "@riotprompt/execution-openai": "^1.0.4",
+    "@kjerneverk/agentic": "^1.0.5",
+    "@kjerneverk/execution": "^1.0.4",
+    "@kjerneverk/execution-anthropic": "^1.0.4",
+    "@kjerneverk/execution-gemini": "^1.0.4",
+    "@kjerneverk/execution-openai": "^1.0.5",
     "openai": "^6.15.0",
     "tiktoken": "^1.0.22"
   },
   "peerDependenciesMeta": {
-    "@riotprompt/execution": {
+    "@kjerneverk/execution": {
       "optional": true
     },
-    "@riotprompt/execution-openai": {
+    "@kjerneverk/execution-openai": {
       "optional": true
     },
-    "@riotprompt/execution-anthropic": {
+    "@kjerneverk/execution-anthropic": {
       "optional": true
     },
-    "@riotprompt/execution-gemini": {
+    "@kjerneverk/execution-gemini": {
       "optional": true
     },
-    "@riotprompt/agentic": {
+    "@kjerneverk/agentic": {
       "optional": true
     },
     "@anthropic-ai/sdk": {

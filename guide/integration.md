@@ -7,22 +7,22 @@ This guide covers the core concepts, configuration options, and code patterns fo
 ## Installation
 
 ```bash
-npm install @riotprompt/riotprompt
+npm install @kjerneverk/riotprompt
 ```
 
 For lighter installs, you can use individual packages:
 
 ```bash
 # Core prompt engineering (no SDK dependencies)
-npm install @riotprompt/riotprompt
+npm install @kjerneverk/riotprompt
 
 # Provider-specific execution
-npm install @riotprompt/execution-openai
-npm install @riotprompt/execution-anthropic
-npm install @riotprompt/execution-gemini
+npm install @kjerneverk/execution-openai
+npm install @kjerneverk/execution-anthropic
+npm install @kjerneverk/execution-gemini
 
 # Agentic features (tool registry, context management)
-npm install @riotprompt/agentic
+npm install @kjerneverk/agentic
 ```
 
 ## Core Concepts
@@ -50,7 +50,7 @@ RiotPrompt treats prompts as structured data objects rather than simple strings.
 Sections are hierarchical containers that can hold items and nested sections:
 
 ```typescript
-import { createSection, createInstruction } from '@riotprompt/riotprompt';
+import { createSection, createInstruction } from '@kjerneverk/riotprompt';
 
 const instructions = createSection<Instruction>('Instructions');
 instructions.add(createInstruction('Analyze the code for bugs'));
@@ -67,7 +67,7 @@ instructions.addSection(advanced);
 Items can have weights for prioritization:
 
 ```typescript
-import { createWeighted } from '@riotprompt/riotprompt';
+import { createWeighted } from '@kjerneverk/riotprompt';
 
 const highPriority = createWeighted('Critical security check', { weight: 1.0 });
 const lowPriority = createWeighted('Style suggestions', { weight: 0.3 });
@@ -80,7 +80,7 @@ const lowPriority = createWeighted('Style suggestions', { weight: 0.3 });
 The `cook` function is the primary entry point for creating prompts:
 
 ```typescript
-import { cook } from '@riotprompt/riotprompt';
+import { cook } from '@kjerneverk/riotprompt';
 
 const prompt = await cook({
     basePath: __dirname,
@@ -131,7 +131,7 @@ const prompt = await cook({
 For more dynamic prompt construction:
 
 ```typescript
-import { recipe } from '@riotprompt/riotprompt';
+import { recipe } from '@kjerneverk/riotprompt';
 
 const prompt = await recipe(__dirname)
     .persona({ content: 'You are a code reviewer' })
@@ -146,7 +146,7 @@ const prompt = await recipe(__dirname)
 Register reusable templates for consistency:
 
 ```typescript
-import { registerTemplates, cook, getTemplates, clearTemplates } from '@riotprompt/riotprompt';
+import { registerTemplates, cook, getTemplates, clearTemplates } from '@kjerneverk/riotprompt';
 
 // Register templates
 registerTemplates({
@@ -188,7 +188,7 @@ clearTemplates();
 RiotPrompt supports portable structured outputs using Zod schemas:
 
 ```typescript
-import { cook } from '@riotprompt/riotprompt';
+import { cook } from '@kjerneverk/riotprompt';
 import { z } from 'zod';
 
 // Define your schema
@@ -228,7 +228,7 @@ RiotPrompt automatically handles model-specific formatting:
 Register custom models:
 
 ```typescript
-import { configureModel, getModelRegistry } from '@riotprompt/riotprompt';
+import { configureModel, getModelRegistry } from '@kjerneverk/riotprompt';
 
 // Register a custom model
 configureModel({
@@ -256,7 +256,7 @@ const registry = getModelRegistry();
 ### For Different Models
 
 ```typescript
-import { Formatter, cook } from '@riotprompt/riotprompt';
+import { Formatter, cook } from '@kjerneverk/riotprompt';
 
 const prompt = await cook({
     basePath: __dirname,
@@ -288,7 +288,7 @@ const formatter = Formatter.create({
 ### Export and Import Prompts
 
 ```typescript
-import { Serializer, cook } from '@riotprompt/riotprompt';
+import { Serializer, cook } from '@kjerneverk/riotprompt';
 
 const prompt = await cook({
     basePath: __dirname,
@@ -330,7 +330,7 @@ my-prompt/
 ### Using the Loader
 
 ```typescript
-import { Loader } from '@riotprompt/riotprompt';
+import { Loader } from '@kjerneverk/riotprompt';
 
 // Create loader
 const loader = Loader.create({
@@ -349,7 +349,7 @@ const context = await loader.load(['./context', './reference']);
 Manage multi-turn conversations:
 
 ```typescript
-import { ConversationBuilder, cook } from '@riotprompt/riotprompt';
+import { ConversationBuilder, cook } from '@kjerneverk/riotprompt';
 
 // Create from prompt
 const prompt = await cook({
@@ -475,7 +475,7 @@ branch.addUserMessage('What if we tried a different approach?');
 Register and manage tools:
 
 ```typescript
-import { ToolRegistry } from '@riotprompt/riotprompt';
+import { ToolRegistry } from '@kjerneverk/riotprompt';
 
 const registry = ToolRegistry.create({
     workingDirectory: process.cwd()
@@ -543,7 +543,7 @@ const definitions = registry.getDefinitions();
 Generate tool usage instructions for prompts:
 
 ```typescript
-import { generateToolGuidance, cook } from '@riotprompt/riotprompt';
+import { generateToolGuidance, cook } from '@kjerneverk/riotprompt';
 
 const guidance = generateToolGuidance(registry.getAll(), {
     style: 'detailed',  // 'minimal' | 'detailed' | 'auto'
@@ -570,7 +570,7 @@ import {
     IterationStrategyFactory,
     ConversationBuilder,
     ToolRegistry
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 
 // Create LLM client (provider-specific)
 const llmClient = {
@@ -648,7 +648,7 @@ const strategy6 = IterationStrategyFactory.adaptive();
 Create custom iteration strategies:
 
 ```typescript
-import type { IterationStrategy, StrategyPhase } from '@riotprompt/riotprompt';
+import type { IterationStrategy, StrategyPhase } from '@kjerneverk/riotprompt';
 
 const customStrategy: IterationStrategy = {
     name: 'custom-workflow',
@@ -747,7 +747,7 @@ if (result.reflection) {
 Prevent path traversal attacks:
 
 ```typescript
-import { Security } from '@riotprompt/riotprompt';
+import { Security } from '@kjerneverk/riotprompt';
 
 const pathGuard = Security.createPathGuard({
     allowedPaths: ['/app/data', '/app/uploads'],
@@ -765,7 +765,7 @@ const isInvalid = pathGuard.validate('../etc/passwd');     // false
 Protect sensitive data in logs:
 
 ```typescript
-import { configureSecureLogging, maskSensitive } from '@riotprompt/riotprompt';
+import { configureSecureLogging, maskSensitive } from '@kjerneverk/riotprompt';
 
 // Configure secure logging
 configureSecureLogging({
@@ -795,7 +795,7 @@ import {
     initializeErrorHandling,
     withErrorHandling,
     formatErrorForDisplay
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 
 // Initialize
 initializeErrorHandling({
@@ -826,7 +826,7 @@ import {
     configureSecureLogging,
     executeWithCorrelation,
     RiotPromptLogger
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 
 // Configure
 configureSecureLogging({
@@ -846,7 +846,7 @@ await executeWithCorrelation(async (correlationId) => {
 ### Custom Logger Integration
 
 ```typescript
-import { createConsoleLogger, wrapLogger } from '@riotprompt/riotprompt';
+import { createConsoleLogger, wrapLogger } from '@kjerneverk/riotprompt';
 
 // Use built-in console logger
 const logger = createConsoleLogger({ level: 'debug' });
@@ -875,7 +875,7 @@ import {
     IterationStrategyFactory,
     configureModel,
     configureSecureLogging
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 import { z } from 'zod';
 
 // 1. Configure security
@@ -1098,7 +1098,7 @@ import type {
     // Security
     SecurityConfig,
     PathSecurityConfig
-} from '@riotprompt/riotprompt';
+} from '@kjerneverk/riotprompt';
 ```
 
 ## Next Steps

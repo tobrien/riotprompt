@@ -9,7 +9,7 @@ The Builder allows you to assemble prompts from various sources including files,
 ## Creating a Builder
 
 ```typescript
-import { Builder } from '@riotprompt/riotprompt';
+import { Builder } from '@kjerneverk/riotprompt';
 
 // Create a builder instance
 const builder = Builder.create({
@@ -89,7 +89,7 @@ const prompt: Prompt = await builder.build();
 Here's a comprehensive example showing Builder usage:
 
 ```typescript
-import { Builder, Prompt } from '@riotprompt/riotprompt';
+import { Builder, Prompt } from '@kjerneverk/riotprompt';
 
 // Create builder with configuration
 const builder = Builder.create({

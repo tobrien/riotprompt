@@ -9,7 +9,7 @@ RiotPrompt allows you to assign weights to sections and individual items within 
 You can define `weight` for the section itself and a default `itemWeight` for items added to that section using `SectionOptions`. Additionally, `parameters` can be defined at the section level and will be passed down to items added to that section.
 
 ```js
-import { createSection, Formatter, Section, Instruction } from '@riotprompt/riotprompt';
+import { createSection, Formatter, Section, Instruction } from '@kjerneverk/riotprompt';
 
 // Create a section with specific weights and parameters
 const weightedSection: Section<Instruction> = createSection<Instruction>({ 
@@ -32,7 +32,7 @@ RiotPrompt supports dynamic content in your prompts through the use of parameter
 Parameters can be passed when creating a prompt, a persona, or a section. They can also be supplied directly when adding individual items like instructions, content, or context if those items are strings with placeholders.
 
 ```js
-import { createSection, createParameters, Formatter, Section, Instruction, Parameters } from '@riotprompt/riotprompt';
+import { createSection, createParameters, Formatter, Section, Instruction, Parameters } from '@kjerneverk/riotprompt';
 
 const parameters: Parameters = createParameters({
   "targetLanguage": "Spanish",
@@ -79,7 +79,7 @@ const formatted = formatter.format(contextSection);
 RiotPrompt can simplify the process of structuring your prompts by parsing Markdown content. When you provide Markdown text, RiotPrompt can automatically convert Markdown headers (e.g., `# Title`, `## Subtitle`) into `Section` objects.
 
 ```js
-import { Parser, Formatter } from '@riotprompt/riotprompt';
+import { Parser, Formatter } from '@kjerneverk/riotprompt';
 
 // Markdown content with sections
 const markdownContent = `

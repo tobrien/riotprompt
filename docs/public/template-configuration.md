@@ -9,7 +9,7 @@ The RiotPrompt Recipes system supports **automatic file loading** through config
 In your main application file or a setup file:
 
 ```typescript
-import { registerTemplates } from '@riotprompt/riotprompt';
+import { registerTemplates } from '@kjerneverk/riotprompt';
 
 // Configure templates to use your exact file paths
 registerTemplates({
@@ -29,7 +29,7 @@ registerTemplates({
 Once configured, **all template usage automatically loads your files**:
 
 ```typescript
-import { cook, recipe } from '@riotprompt/riotprompt';
+import { cook, recipe } from '@kjerneverk/riotprompt';
 
 // All these automatically include your persona & instruction files:
 
@@ -52,7 +52,7 @@ const prompt2 = await recipe(__dirname)
 ### Full Configuration Example
 
 ```typescript
-import { registerTemplates, TemplateConfig } from '@riotprompt/riotprompt';
+import { registerTemplates, TemplateConfig } from '@kjerneverk/riotprompt';
 
 const templates: Record<string, TemplateConfig> = {
   commit: {
@@ -129,7 +129,7 @@ Each template section accepts flexible content items:
 ### Check Current Templates
 
 ```typescript
-import { getTemplates } from '@riotprompt/riotprompt';
+import { getTemplates } from '@kjerneverk/riotprompt';
 
 const currentTemplates = getTemplates();
 console.log('Available templates:', Object.keys(currentTemplates));
