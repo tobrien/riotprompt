@@ -99,8 +99,8 @@ export {
 export type { SecureLoggingOptions, MaskingConfig } from "./logging-config";
 
 // ===== SAFE REGEX =====
-export { SafeRegex, createSafeRegex, globToSafeRegex, escapeForRegex } from '@theunwalked/pressurelid';
-export type { SafeRegexResult, SafeRegexConfig, SafeRegexReason } from '@theunwalked/pressurelid';
+export { SafeRegex, createSafeRegex, globToSafeRegex, escapeForRegex } from '@utilarium/pressurelid';
+export type { SafeRegexResult, SafeRegexConfig, SafeRegexReason } from '@utilarium/pressurelid';
 
 // ===== ERROR HANDLING =====
 export {

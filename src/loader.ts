@@ -1,6 +1,6 @@
 import path from "path";
 import { z } from "zod";
-import { SafeRegex } from "@theunwalked/pressurelid";
+import { SafeRegex } from "@utilarium/pressurelid";
 import { DEFAULT_IGNORE_PATTERNS } from "./constants";
 import { ParametersSchema } from "./items/parameters";
 import { SectionOptions, SectionOptionsSchema } from "./items/section";
