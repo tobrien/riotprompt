@@ -110,9 +110,9 @@
     "@google/generative-ai": "^0.24.1",
     "@kjerneverk/agentic": "^1.0.5",
     "@kjerneverk/execution": "^1.0.4",
-    "@kjerneverk/execution-anthropic": "^1.0.4",
-    "@kjerneverk/execution-gemini": "^1.0.4",
-    "@kjerneverk/execution-openai": "^1.0.5",
+    "@kjerneverk/execution-anthropic": "^1.0.6",
+    "@kjerneverk/execution-gemini": "^1.0.6",
+    "@kjerneverk/execution-openai": "^1.0.7",
     "openai": "^6.15.0",
     "tiktoken": "^1.0.22"
   },
