@@ -1,13 +1,19 @@
 import OpenAI from 'openai';
 import { Provider, ProviderResponse, ExecutionOptions } from './provider';
 import { Request } from '../chat';
+import { getProxyUrl, createProxyFetch } from './proxy-openai';
 
 export class OpenAIProvider implements Provider {
     async execute(request: Request, options: ExecutionOptions = {}): Promise<ProviderResponse> {
         const apiKey = options.apiKey || process.env.OPENAI_API_KEY;
         if (!apiKey) throw new Error('OpenAI API key is required');
 
-        const client = new OpenAI({ apiKey });
+        const clientOptions: ConstructorParameters<typeof OpenAI>[0] = { apiKey };
+        const proxyUrl = getProxyUrl();
+        if (proxyUrl) {
+            clientOptions.fetch = createProxyFetch(proxyUrl);
+        }
+        const client = new OpenAI(clientOptions);
         
         const model = options.model || request.model || 'gpt-4';
 

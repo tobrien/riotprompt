@@ -1,13 +1,19 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { Provider, ProviderResponse, ExecutionOptions } from './provider';
 import { Request } from '../chat';
+import { getProxyUrl, createProxyFetch } from './proxy-anthropic';
 
 export class AnthropicProvider implements Provider {
     async execute(request: Request, options: ExecutionOptions = {}): Promise<ProviderResponse> {
         const apiKey = options.apiKey || process.env.ANTHROPIC_API_KEY;
         if (!apiKey) throw new Error('Anthropic API key is required');
 
-        const client = new Anthropic({ apiKey });
+        const clientOptions: ConstructorParameters<typeof Anthropic>[0] = { apiKey };
+        const proxyUrl = getProxyUrl();
+        if (proxyUrl) {
+            clientOptions.fetch = createProxyFetch(proxyUrl);
+        }
+        const client = new Anthropic(clientOptions);
         
         const model = options.model || request.model || 'claude-3-opus-20240229';
 
